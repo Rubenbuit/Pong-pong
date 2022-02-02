@@ -9,6 +9,7 @@ public class BallScript : MonoBehaviour
     private Vector2 moveAmount;
     private bool startBall = false;
     
+    // Start is called before the first frame update
     void Start()
     {
         startBall = true;
@@ -26,9 +27,8 @@ public class BallScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        moveAmount = new Vector2 (moveAmount.x , (moveAmount.y * -1));
-        rb.AddForce( moveAmount*speed);
+    private void OnCollisionEnter2D(Collision2D other) {    
+        Debug.Log("Got here");
     }
 }
 
