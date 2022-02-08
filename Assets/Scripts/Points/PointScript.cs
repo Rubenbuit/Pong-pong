@@ -10,7 +10,7 @@ public class PointScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int colorIndex = Random.Range(0, material.Length +1);  
+        int colorIndex = Random.Range(0, material.Length);  
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         

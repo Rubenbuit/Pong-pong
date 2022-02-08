@@ -6,29 +6,29 @@ public class BallScript : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
-    private Vector2 moveAmount;
-    private bool startBall = false;
+    private Vector2 startPosition;
+
+    private GameScript GameScript;
     
     // Start is called before the first frame update
     void Start()
     {
-        startBall = true;
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-        if(startBall){
-            if(Input.GetKeyDown(KeyCode.Space)){
-                moveAmount = new Vector2(0 , 20);
-                rb.AddForce(moveAmount* speed );
-                startBall = false;
-            }
-        }
+        startPosition = transform.position;
+        rb.AddForce(new Vector2(0 , 20)* speed );
     }
 
     private void OnCollisionEnter2D(Collision2D other) {    
-        Debug.Log("Got here");
+        if ( other.gameObject.tag == "Point")
+        {
+           // GameScript.AddScore(100);
+            Destroy(other.gameObject);
+        }
+        if( other.gameObject.tag == "Respawn")
+        {
+            GameScript.lives =- 1;
+            transform.position = startPosition;
+        }
     }
 }
 
