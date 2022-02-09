@@ -23,12 +23,21 @@ public class BallScript : MonoBehaviour
         {
            // GameScript.AddScore(100);
             Destroy(other.gameObject);
+            DropPowerUp();
         }
         if( other.gameObject.tag == "Respawn")
         {
-            GameScript.lives =- 1;
+            //GameScript.lives =- 1;
             transform.position = startPosition;
         }
+    }
+
+    //drops power up to make player bigger
+    private void DropPowerUp() {
+        Debug.Log("got here");
+        GameObject cube = (GameObject)Instantiate(Resources.Load("Prefabs/Powerups/IncreaseSizePowerUp"));
+        cube.AddComponent<Collider2D>();
+        cube.transform.position = new Vector3(3, 3, 0);
     }
 }
 
