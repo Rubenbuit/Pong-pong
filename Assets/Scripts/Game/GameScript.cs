@@ -4,35 +4,34 @@ using UnityEngine;
 
 public class GameScript : MonoBehaviour
 {
-    public int lives = 3;
-    public int maxLives = 5;
-    public int score = 0;
-    public GameObject[] livesSprite;
-    
-    // Start is called before the first frame update
+    public int lives;
+    public int score;
+    public GameObject livesSprite;
+
     public void Start() {
-        int tempLives = lives;
-        for(int i = 0 ; i < livesSprite.Length ; i ++) {
-            if(tempLives > 0) {
-                livesSprite[i].SetActive(true);
-                tempLives --;
-            } else {
-                livesSprite[i].SetActive(false);
-            }
-        }
+      DrawLives();
     }
 
-        void Update()
-    {
-    }
-
-    public void AddScore(int score)
-    {
+    public void AddScore(int score) {
         score += score;
     }
 
-    private void DrawLives(){
-
+    public void DecreaseLives() {
+        lives =-1;
+        DrawLives();
     }
-    
+
+    public void IncreaseLives() {
+        lives =+1;
+        DrawLives();
+    }
+
+    private void DrawLives() {
+        Vector3 position = livesSprite.transform.position;
+        for(int i = 0; i < lives; i++) {
+            GameObject life = (GameObject)Instantiate(livesSprite);
+            life.transform.position = new Vector3(position.x, position.y, position.z);
+            position.x += 0.32f;
+        }
+    }
 }
