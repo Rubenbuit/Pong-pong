@@ -34,10 +34,9 @@ public class BallScript : MonoBehaviour
 
     //drops power up to make player bigger
     private void DropPowerUp() {
-        Debug.Log("got here");
-        GameObject cube = (GameObject)Instantiate(Resources.Load("Prefabs/Powerups/IncreaseSizePowerUp"));
-        cube.AddComponent<Collider2D>();
-        cube.transform.position = new Vector3(3, 3, 0);
+        GameObject powerup = (GameObject)Instantiate(Resources.Load("Prefabs/Powerups/IncreaseSize"));
+        powerup.AddComponent<Collider2D>();
+        powerup.transform.position = new Vector3(3, 3, 0);
     }
 }
 
