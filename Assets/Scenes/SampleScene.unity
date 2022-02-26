@@ -235,8 +235,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5ec5c0913edc6e4785426333e8f0d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   speed: 15
   playerWidth: 0
 --- !u!212 &272587425
@@ -584,8 +584,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 369f70d7d9a65dd41b542ef1e7abc430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   lives: 3
   score: 0
   livesSprite: {fileID: 615865881}
@@ -792,13 +792,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d432fa86ec208a34485f344ffc25d3a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   speed: 20
   PositivePowerUps:
   - {fileID: 1930896158031510898, guid: 234629e63f724ed47aae3611f9b242e9, type: 3}
+  - {fileID: 8709696480431327677, guid: 4fcb375b84f3532448b93511bccc6bbd, type: 3}
+  - {fileID: 604848326960148330, guid: ee685f23e51429145a3f1a76808aedce, type: 3}
+  - {fileID: 7706330959318699390, guid: 607f8bf37d3263443a5f8f3cce9b227f, type: 3}
+  - {fileID: 1913895508377096846, guid: a1198beb024bf9945aacc01eadbeb433, type: 3}
   NegativePowerUps:
+  - {fileID: 4355957955701181844, guid: 40ef42ef4afa3294f9ba5ecd3a39c3b8, type: 3}
+  - {fileID: 8030665530730767177, guid: 2cfd597f0de14574f8079b74a9a3f2f1, type: 3}
   - {fileID: 6663054969732724492, guid: 3b0f7abedd7f2614698691970717f981, type: 3}
+  - {fileID: 7246164454225279485, guid: 5548387ee113d7c40bb0434973392a41, type: 3}
 --- !u!58 &756483638
 CircleCollider2D:
   m_ObjectHideFlags: 0
