@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1913895508377096847}
   - component: {fileID: -8034949272390603381}
   m_Layer: 0
-  m_Name: IncreaseSize
+  m_Name: IncreasePlayerSize
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

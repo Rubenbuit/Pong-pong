@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
         string powerUp = other.gameObject.name;
 
         switch(powerUp){
-            case "IncreaseSize":
+            case "IncreasePlayerSize":
                 ChangePlayerSize(true);
                 return;
             case "DecreasePlayerSize":
@@ -50,12 +50,24 @@ public class PlayerScript : MonoBehaviour
             case "DecreasePlayerSpeed":
                 ChangePlayerSpeed(false);
                 return;
+            case "IncreaseBalls":
+                gameScript.AddBall();
+                return;
+            case "IncreaseBallSpeed":
+                //TODO
+                return;
+            case "DecreaseBallSpeed":
+                //TODO
+                return;    
+            case "IncreaseLife":
+                gameScript.IncreaseLife();
+                return;
             default:
                 Debug.Log("Unknown Powerup: " + other);
                 return;
             }
         }
-    }    
+    }  
    
    private void ChangePlayerSpeed(bool increaseSpeed){
        float addedSpeed = increaseSpeed? -5: 5; // check if works/ realistic

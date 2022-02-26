@@ -24,13 +24,14 @@ public class BallScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {    
         if ( other.gameObject.tag == "Point") {
+            GameLogic.IncreaseScore(200);
             int shouldDropPowerUp = Random.Range(0, 11 ); 
             if( shouldDropPowerUp <= 5) 
                 DropPowerUp();
             Destroy(other.gameObject);
         }
         if( other.gameObject.tag == "Respawn") {
-            GameLogic.DecreaseLives();
+            GameLogic.DecreaseLife();
             transform.position = startPosition;
         }
     }
