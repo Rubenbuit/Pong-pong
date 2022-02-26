@@ -8,12 +8,14 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveAmount;  
     public float playerWidth;
+    private GameScript gameScript;
     
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
        playerWidth = transform.localScale.y; 
+       gameScript= GetComponent<GameScript>();
     }
 
     // Update is called once per frame

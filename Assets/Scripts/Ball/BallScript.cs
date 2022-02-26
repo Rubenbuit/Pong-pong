@@ -12,13 +12,14 @@ public class BallScript : MonoBehaviour
 
     public GameObject[] NegativePowerUps;
 
-    private GameScript GameScript;
-    
+    private GameScript GameLogic;
+   
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
         rb.AddForce(new Vector2(0 , 20)* speed );
+        GameLogic = GameObject.Find("Player").GetComponent<GameScript>();
     }
 
     private void OnCollisionEnter2D(Collision2D other) {    
@@ -26,12 +27,10 @@ public class BallScript : MonoBehaviour
             int shouldDropPowerUp = Random.Range(0, 11 ); 
             if( shouldDropPowerUp <= 5) 
                 DropPowerUp();
- 
-            // GameScript.AddScore(100);
             Destroy(other.gameObject);
         }
         if( other.gameObject.tag == "Respawn") {
-            //GameScript.lives =- 1;
+            GameLogic.DecreaseLives();
             transform.position = startPosition;
         }
     }
@@ -52,9 +51,6 @@ public class BallScript : MonoBehaviour
         int choosePowerUp = Random.Range(0, PositivePowerUps.Length ); 
         GameObject powerUp = (GameObject)Instantiate(PositivePowerUps[choosePowerUp]);
         powerUp.AddComponent<Rigidbody2D>();
-        // Rigidbody2D rb2 = powerUp.GetComponent<Rigidbody2D>();
-        // rb2.mass = 0.1f;
-        // rb2.gravityScale = 0.2f;
         powerUp.transform.position = new Vector3(3, 3, 0);
     }
 
