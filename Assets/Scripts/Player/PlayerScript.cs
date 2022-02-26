@@ -36,8 +36,8 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
     if(other.gameObject.tag == "PowerUp") {
         string powerUp = other.gameObject.name;
-
-        switch(powerUp){
+        Destroy(other.gameObject);
+        switch(powerUp) {
             case "IncreasePlayerSize":
                 ChangePlayerSize(true);
                 return;
