@@ -12,8 +12,9 @@ public class GameScript : MonoBehaviour
       DrawLives();
     }
 
-    public void AddScore(int score) {
+    public void IncreaseScore(int score) {
         score += score;
+        DrawScore();
     }
 
     public void DecreaseLives() {
@@ -33,5 +34,9 @@ public class GameScript : MonoBehaviour
             life.transform.position = new Vector3(position.x, position.y, position.z);
             position.x += 0.32f;
         }
+    }
+
+    private void DrawScore(){
+        //TODO draw score on text in screen
     }
 }

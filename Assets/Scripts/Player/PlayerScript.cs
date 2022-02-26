@@ -31,6 +31,35 @@ public class PlayerScript : MonoBehaviour
         rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+    if(other.gameObject.tag == "PowerUp") {
+        string powerUp = other.gameObject.name;
+
+        switch(powerUp){
+            case "IncreaseSize":
+                ChangePlayerSize(true);
+                return;
+            case "DecreasePlayerSize":
+                ChangePlayerSize(false);
+                return;
+            case "IncreasePlayerSpeed":
+                ChangePlayerSpeed(true);
+                return;
+            case "DecreasePlayerSpeed":
+                ChangePlayerSpeed(false);
+                return;
+            default:
+                Debug.Log("Unknown Powerup: " + other);
+                return;
+            }
+        }
+    }    
+   
+   private void ChangePlayerSpeed(bool increaseSpeed){
+       float addedSpeed = increaseSpeed? -5: 5; // check if works/ realistic
+       speed += addedSpeed;
+   }
+
     private void ChangePlayerSize(bool makeBigger){
         if (makeBigger) {
             playerWidth += 0.2f;
