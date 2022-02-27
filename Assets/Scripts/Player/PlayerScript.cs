@@ -8,12 +8,14 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveAmount;  
     public float playerWidth;
+    private GameScript gameScript;
     
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
        playerWidth = transform.localScale.y; 
+       gameScript= GetComponent<GameScript>();
     }
 
     // Update is called once per frame
@@ -34,9 +36,9 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
     if(other.gameObject.tag == "PowerUp") {
         string powerUp = other.gameObject.name;
-
-        switch(powerUp){
-            case "IncreaseSize":
+        Destroy(other.gameObject);
+        switch(powerUp) {
+            case "IncreasePlayerSize":
                 ChangePlayerSize(true);
                 return;
             case "DecreasePlayerSize":
@@ -48,12 +50,24 @@ public class PlayerScript : MonoBehaviour
             case "DecreasePlayerSpeed":
                 ChangePlayerSpeed(false);
                 return;
+            case "IncreaseBalls":
+                gameScript.AddBall();
+                return;
+            case "IncreaseBallSpeed":
+                //TODO
+                return;
+            case "DecreaseBallSpeed":
+                //TODO
+                return;    
+            case "IncreaseLife":
+                gameScript.IncreaseLife();
+                return;
             default:
                 Debug.Log("Unknown Powerup: " + other);
                 return;
             }
         }
-    }    
+    }  
    
    private void ChangePlayerSpeed(bool increaseSpeed){
        float addedSpeed = increaseSpeed? -5: 5; // check if works/ realistic
